@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Finanças Pessoais</title>
-    <!-- Vincula o arquivo de manifesto -->
     <link rel="manifest" href="manifest.json">
-    <!-- Cor da barra superior do celular (Android) -->
     <meta name="theme-color" content="#0b0f17">
-    <!-- Configurações para iPhone (iOS) -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Finanças">
@@ -20,16 +17,10 @@
             --cor-texto: #ffffff;
             --cor-fundo: #0b0f17;
             --cor-borda: #1e2b3e;
-            --cor-teal: #008080;
-            --cor-navy: #000080;
-            --cor-fundo-navy: #1e2b3e;
             --cor-gray: #64748b;
-            --cor-indigo-escuro: #4B0082;
-            --cor-verde-esmeralda: #046307;
-            --cor-grafite: #2C2C2C;
             --cor-sucesso: #16a34a;
             --cor-perigo: #dc2626;
-            --cor-fundo-caixa: #2e3e58;
+            --cor-fundo-navy: #1e2b3e;
         }
         
         * {
@@ -47,7 +38,68 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+        }
+
+        header.header-main {
+            width: 100%;
+            color: #ffffff;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            background-color: var(--cor-fundo);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .app-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #34d399, #059669);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(52, 211, 153, 0.25);
+            flex-shrink: 0;
+        }
+
+        .header-info h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        #Data {
+            font-size: 0.85rem;
+            color: #8593a7;
+            text-transform: capitalize;
+        }
+
+        .btn-config {
+            background-color: #151c2a;
+            color: #ffffff;
+            border: 1px solid var(--cor-borda);
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-config:hover, .btn-config:active {
+            background-color: #1e2b3e;
+            border-color: #334155;
         }
 
         main {
@@ -55,86 +107,17 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            padding: 20px 0;
-        }
-        
-        header.header-main {
-            width: 100%;
-            color: #ffffff;
-            text-align: left;
-            justify-content: space-between;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-            background-color: var(--cor-fundo);
-            padding: 16px 24px;
-            display: flex;
-            border-bottom: 1px solid #334155;
-        }
-        
-        .header-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        header h1 {
-            font-size: 2.0rem;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .app-icon {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, #34d399, #059669);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(52, 211, 153, 0.25);
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .btn-config {
-            background-color: #151c2a;
-            color: #ffffff;
-            border: 1px solid var(--cor-borda);
-            padding: 10px 16px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 0.875rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s ease;
-        }
-
-        .btn-config:hover {
-            background-color: #1e2b3e;
-            border-color: #334155;
-        }
-
-        .subtitulo {
-            font-size: 1rem;
-            color: #8593a7;
-            margin-top: 4px;
+            padding: 16px;
         }
 
         .container {
             max-width: 1200px;
             width: 100%;
-            margin: 0 auto;
-            padding: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);          
         }
         
         .titulo-secao {
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: #FFFFFF;
@@ -143,28 +126,28 @@
             border-bottom: 1px solid #334155;
         }
 
-        /* CARDS DO TOPO (3 Colunas) */
+        /* CARDS DO TOPO */
         .tres-colunas {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .card-hoje, .card-mes, .card-renda {
             border: 1px solid var(--cor-borda);
             border-radius: 12px;
-            padding: 20px;
+            padding: 16px;
             background-color: #151C2A;
             color: #FFFFFF;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 170px;
+            min-height: 150px;
         }
 
         .valor-hoje {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
             color: #34D399;   
             margin: 4px 0;
@@ -172,14 +155,13 @@
 
         .badge-status {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             background-color: #dcfce7;
             color: #15803d;
             width: fit-content;
-            margin-top: 6px;
         }
 
         .info-mes {
@@ -187,7 +169,7 @@
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-bottom: 10px;
         }
 
@@ -211,16 +193,17 @@
         /* FORMULÁRIO E HISTÓRICO LADO A LADO */
         .duas-colunas {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             align-items: flex-start;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .card-formulario, .card-historico-sec {
             flex: 1;
+            width: 100%;
             border: 1px solid var(--cor-borda);
             border-radius: 12px;
-            padding: 20px;
+            padding: 18px;
             background-color: #151C2A;
         }
 
@@ -231,11 +214,11 @@
             border: 2px solid var(--cor-borda);
             border-radius: 10px;
             padding: 8px 12px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .input-container span {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--cor-gray);
             margin-right: 6px;
@@ -245,7 +228,7 @@
             width: 100%;
             border: none;
             outline: none;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: #1e293b;
             background: transparent;
@@ -255,22 +238,23 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 8px;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
 
         .btn-categoria {
             color: #ffffff;
-            border: none;
-            padding: 14px 6px;
+            border: 1px solid var(--cor-borda);
+            padding: 12px 6px;
             border-radius: 8px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 4px;
-            transition: transform 0.1s, opacity 0.2s;
+            transition: all 0.15s ease;
+            user-select: none;
         }
 
         .btn-categoria:active {
@@ -282,7 +266,7 @@
             background-color: var(--cor-sucesso);
             color: #ffffff;
             border: none;
-            padding: 12px;
+            padding: 14px;
             border-radius: 10px;
             font-size: 1rem;
             font-weight: 700;
@@ -290,7 +274,7 @@
             transition: background-color 0.2s;
         }
 
-        .btn-salvar:hover {
+        .btn-salvar:hover, .btn-salvar:active {
             background-color: #15803d;
         }
 
@@ -298,14 +282,14 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-top: 6px;
+            margin-top: 8px;
         }
 
         .item-historico {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 12px;
+            padding: 12px;
             background-color: #0b0f17;
             border-radius: 8px;
             border: 1px solid var(--cor-borda);
@@ -313,14 +297,57 @@
         }
 
         .item-historico .descricao {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: #ffffff;
+        }
+
+        .item-historico-acoes {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .item-historico .valor {
             font-weight: 700;
             color: var(--cor-perigo);
+        }
+
+        .btn-deletar {
+            background: transparent;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            font-size: 0.9rem;
+            padding: 2px 4px;
+        }
+
+        /* RESPONSIVIDADE PARA CELULAR */
+        @media (max-width: 768px) {
+            header.header-main {
+                flex-direction: column;
+                gap: 12px;
+                align-items: stretch;
+            }
+
+            .header-right {
+                width: 100%;
+            }
+
+            .btn-config {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .tres-colunas {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .duas-colunas {
+                flex-direction: column;
+                gap: 16px;
+            }
         }
     </style>
 </head>
@@ -388,7 +415,7 @@
                     <div class="titulo-secao">RENDA E ECONOMIA</div>
                     <div class="valor-renda">
                         RENDA REGISTRADA:
-                        <div style="font-size: 1.5rem; font-weight: 700; color: #34d399; margin-top: 8px;">R$ 3.000,00</div>
+                        <div class="valor-renda-exibicao" style="font-size: 1.5rem; font-weight: 700; color: #34d399; margin-top: 8px;">R$ 0,00</div>
                     </div>
                 </div>
             </div>
@@ -401,7 +428,7 @@
                     <!-- Input de Valor -->
                     <div class="input-container">
                         <span>R$</span>
-                        <input type="number" class="input-valor" placeholder="0,00" step="0.01" id="inputValor">
+                        <input type="number" inputmode="decimal" class="input-valor" placeholder="0,00" step="0.01" id="inputValor">
                     </div>
          
                     <!-- Botões de Categoria -->
@@ -421,15 +448,9 @@
                 </div>
                 
                 <div class="card-historico-sec">
-                    <div class="titulo-secao">Histórico Do Mês</div>
-                    <p style="color: var(--cor-gray); font-size: 0.9rem;">Filtros e resumo de lançamentos...</p>
+                    <div class="titulo-secao">Histórico Recente (Hoje)</div>
+                    <div class="historico-lista"></div>
                 </div>
-            </div>
-
-            <!-- HISTÓRICO RECENTE -->
-            <div class="titulo-secao">Histórico Recente (Hoje)</div>
-            <div class="card-historico-recente">
-                <div class="historico-lista"></div>
             </div>
 
         </div>
